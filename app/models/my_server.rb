@@ -1,0 +1,2 @@
+class MyServer < ApplicationRecord
+end
