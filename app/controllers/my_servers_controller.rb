@@ -17,6 +17,7 @@ class MyServersController < ApplicationController
     @my_server = MyServer.new(my_server_params)
 
     if @my_server.save
+      ServerMailer.email(@server).deliver_later
       render json: @my_server, status: :created, location: @my_server
     else
       render json: @my_server.errors, status: :unprocessable_entity
